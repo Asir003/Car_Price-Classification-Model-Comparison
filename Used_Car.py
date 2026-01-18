@@ -30,8 +30,28 @@ sns.set_palette("husl")
 
 class CarPricePredictor:
 
-    
+    def __init__(self, csv_file='Used Car Dataset.csv'):
+       
+        self.csv_file = csv_file
+        self.df = None
+       
+    def load_data(self):
 
+        print("=" * 60)
+        print("Loading Dataset...")
+        print("=" * 60)
+        
+        try:
+            self.df = pd.read_csv(self.csv_file)
+            print(f"  Dataset loaded successfully!")
+            print(f"  - Shape: {self.df.shape[0]} rows, {self.df.shape[1]} columns")
+            print(f"  - Columns: {list(self.df.columns)}")
+        except FileNotFoundError:
+            print(f"✗ Error: File '{self.csv_file}' not found!")
+            raise
+        except Exception as e:
+            print(f"✗ Error loading file: {str(e)}")
+            raise
 
     def run_complete_pipeline(self):
 
