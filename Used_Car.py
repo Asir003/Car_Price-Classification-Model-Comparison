@@ -72,6 +72,12 @@ class CarPricePredictor:
         print("Preprocessing Data...")
         print("=" * 60)
 
+        # Step 1: Keep only required columns
+        print("\n1. Selecting required columns...")
+        missing_columns = [col for col in self.required_columns if col not in self.df.columns]
+        if missing_columns:
+            print(f"    Warning: Missing columns: {missing_columns}")
+
     def run_complete_pipeline(self):
 
         print("\n" + "=" * 60)
