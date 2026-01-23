@@ -34,6 +34,19 @@ class CarPricePredictor:
        
         self.csv_file = csv_file
         self.df = None
+
+        self.required_columns=[
+            'car_name','fuel_type','seats','kms_driven','ownsership',
+            'transmission','manufacturing_year','mileage(kmpl)','engine(cc)',
+            'max_power(bhp)','torque(Nm)','price(in lakhs)'
+        ]
+    
+        self.categorical_columns=['car_name','fuel_type','ownsership','transmission']
+        
+        self.numerical_columns=[
+            'seats','kms_driven','manufacturing_year','mileage(kmpl)',
+            'engine(cc)','max_power(bhp)','torque(Nm)'
+        ]
        
     def load_data(self):
 
