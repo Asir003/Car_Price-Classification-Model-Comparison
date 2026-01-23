@@ -66,6 +66,12 @@ class CarPricePredictor:
             print(f"✗ Error loading file: {str(e)}")
             raise
 
+    def preprocess_data(self):
+       
+        print("\n" + "=" * 60)
+        print("Preprocessing Data...")
+        print("=" * 60)
+
     def run_complete_pipeline(self):
 
         print("\n" + "=" * 60)
@@ -73,6 +79,7 @@ class CarPricePredictor:
         print("=" * 60)
 
         self.load_data()
+        self.preprocess_data()
 
 def main():
     
